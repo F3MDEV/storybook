@@ -13,12 +13,19 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/material-ui": "^0.21.12",
+    "@types/react-bootstrap": "^0.32.29",
     "react": "^17.0.1",
+    "react-bootstrap": "^2.2.3",
     "react-dom": "^17.0.1",
+    "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.1",
+    "typescript": "^4.6.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -68,6 +75,7 @@
     "@storybook/react": "^6.4.18",
     "@storybook/testing-library": "^0.0.9",
     "@storybook/testing-react": "^1.2.3",
+    "@types/react-router-dom": "^5.3.3",
     "msw": "^0.36.8",
     "msw-storybook-addon": "^1.6.0"
   }
