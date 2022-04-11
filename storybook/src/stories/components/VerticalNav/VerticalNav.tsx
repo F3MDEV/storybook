@@ -271,8 +271,8 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
     mt4: {
       marginTop: 15
     },
-    ml4: {
-      marginLeft: 15
+    ml3: {
+      marginLeft: 10
     },
     mr3: {
       marginRight: 10
@@ -376,10 +376,6 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
         paddingLeft: 60
       }
     },
-    centerNavbar: {
-      textAlign: 'center',
-      zIndex: 10004
-    },
     verticalNav: {
       '&.navbar': {
         paddingLeft: 0,
@@ -396,10 +392,13 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
     dNone: {
       display: 'none'
     },
-    dLgFlex: {
+    /* dLgFlex: {
       [theme.breakpoints.up('lg')]: {
         display: 'flex'
       }
+    }, */
+    dFlex: {
+      display: 'flex'
     },
     navContainer: {
       flexDirection: 'column',
@@ -407,9 +406,6 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
       paddingLeft: 0,
       listStyle: 'none',
       position: 'relative'
-    },
-    dFlex: {
-      display: 'flex'
     },
     navLinkSize: {
       padding: 10,
@@ -464,14 +460,16 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
     <>
       <Router>
         <div
-          className={`${styleClass.centerNavbar} ${styleClass.floatLeft} ${
+          /* ${styleClass.centerNavbar} */
+          className={` ${styleClass.floatLeft} ${
             styleClass.HeightOneHundred
           } ${isPositionFixed ? styleClass.PositionFixed : ''}`}
         >
           <Navbar
             collapseOnSelect
             expand='lg'
-            className={`${styleClass.dLgFlex} ${styleClass.HeightOneHundred}
+            /* ${styleClass.dLgFlex} */
+            className={` ${styleClass.HeightOneHundred} ${styleClass.dFlex}
              ${
                isBarExtended ? `${styleClass.extendedMenu}` : `${styleClass.verticalNav}`
              } `}
@@ -482,7 +480,7 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
                 styleClass.mt4
               } ${
                 isBarExtended
-                  ? `${styleClass.mt4} ${styleClass.ml4}`
+                  ? `${styleClass.mt4} ${styleClass.ml3}`
                   : `${styleClass.centerMargin}`
               }`}
               size='small'
