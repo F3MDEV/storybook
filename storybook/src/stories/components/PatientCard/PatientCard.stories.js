@@ -1,5 +1,3 @@
-import React from 'react';
-
 import PatientCard from './PatientCard.tsx';
 
 export default {

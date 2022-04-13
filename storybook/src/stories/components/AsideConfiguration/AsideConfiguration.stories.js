@@ -4,31 +4,8 @@ export default {
     component: AsideConfiguration,
     title: 'AsideConfiguration',
     argTypes: {
-        clickTab: {
-            table: {
-                disable: true,
-              },
-        },
-        clickToogleBar: {
-            table: {
-                disable: true,
-              },
-        }, 
-        tabs: {
-            table: {
-                disable: true,
-              },
-        }, 
-        openBarContent: {
-            table: {
-                disable: true,
-              },
-        }, 
-        closedBarContent: {
-            table: {
-                disable: true,
-              },
-        }, 
+        clickTab: { action: 'Enter the void!' },
+        clickToogleBar: { action: 'Enter the void!' }
     },
 };
 

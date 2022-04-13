@@ -1,4 +1,5 @@
 import * as React from 'react';
+import 'bootstrap/dist/css/bootstrap.css';
 import { FunctionComponent, useState } from "react";
 
 // OUTSIDE COMPONENTS
@@ -101,6 +102,9 @@ interface AsideConfigurationProps {
           top: 130,
         },
       },
+      "& .MuiTypography-root":{
+          color: '#444444'
+      }
     },
     positionFixed: {
       position: "fixed",
@@ -449,8 +453,8 @@ interface AsideConfigurationProps {
   
   const styleClass = useStyles();
   
-  const [isBarExtended, setIsBarExtended] = useState(true) 
-  const [tabActive, setTabActive] = useState(0) 
+    const [isBarExtended, setIsBarExtended] = useState(true) 
+    const [tabActive, setTabActive] = useState(0) 
 
     const handleTab = (val: number) => {
         setTabActive(val);
@@ -501,9 +505,9 @@ interface AsideConfigurationProps {
                     <div>
                         {/* {tabs} */}
                         <ButtonGroup style={{paddingLeft: 15, paddingRight: 15, width: "100%"}} color="primary" aria-label="outlined primary button group">
-                            <Button id={'buttonTabAside1'} style={{width: '100%', whiteSpace: "nowrap", fontFamily: 'Roboto Condensed', fontSize: 13}} onClick={() => {handleTab(0); console.log('tab1')}}>{buttonOneTitle}</Button>
-                            <Button id={'buttonTabAside2'} style={{width: '100%', whiteSpace: "nowrap", fontFamily: 'Roboto Condensed', fontSize: 13}} onClick={() => {handleTab(1); console.log('tab2')}}>{buttonTwoTitle}</Button>
-                            <Button id={'buttonTabAside3'} style={{width: '100%', fontFamily: 'Roboto Condensed', fontSize: 13, whiteSpace: 'nowrap'}} onClick={() => {handleTab(2); console.log('tab3')}}>{buttonThreeTitle}</Button>
+                            <Button id={'buttonTabAside1'} style={{width: '100%', whiteSpace: "nowrap", fontFamily: 'Roboto Condensed', fontSize: 13}} onClick={() => handleTab(0)}>{buttonOneTitle}</Button>
+                            <Button id={'buttonTabAside2'} style={{width: '100%', whiteSpace: "nowrap", fontFamily: 'Roboto Condensed', fontSize: 13}} onClick={() => handleTab(1)}>{buttonTwoTitle}</Button>
+                            <Button id={'buttonTabAside3'} style={{width: '100%', fontFamily: 'Roboto Condensed', fontSize: 13, whiteSpace: 'nowrap'}} onClick={() => handleTab(2)}>{buttonThreeTitle}</Button>
                         </ButtonGroup>
                     </div>
 

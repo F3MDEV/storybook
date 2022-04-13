@@ -401,7 +401,7 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
       display: 'flex'
     },
     navContainer: {
-      flexDirection: 'column',
+      flexDirection: 'column !important',
       display: 'flex',
       paddingLeft: 0,
       listStyle: 'none',
@@ -467,7 +467,6 @@ export const VerticalNav: FunctionComponent<VerticalNavProps> = ({
         >
           <Navbar
             collapseOnSelect
-            expand='lg'
             /* ${styleClass.dLgFlex} */
             className={` ${styleClass.HeightOneHundred} ${styleClass.dFlex}
              ${
