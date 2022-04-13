@@ -275,9 +275,6 @@ const PatientCard: FunctionComponent<PatientCardProps> = ({
                     textOverflow: "ellipsis"
                 }
             }
-        },
-        customTop:{
-            marginTop: 15,
         }
     }))
 
@@ -368,7 +365,6 @@ const PatientCard: FunctionComponent<PatientCardProps> = ({
                         disableTouchRipple
                         focusRipple
                         onClick={clickedLink as React.MouseEventHandler<HTMLButtonElement>}
-                        className={styleClass.customTop}
                         >
                         <Box
                             color={colorBottomLink}
