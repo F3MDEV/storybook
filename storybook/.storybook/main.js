@@ -9,6 +9,7 @@ module.exports = {
   ],
   features: {
     postcss: false,
+    emotionAlias: false
   },
   framework: "@storybook/react",
   core: {
