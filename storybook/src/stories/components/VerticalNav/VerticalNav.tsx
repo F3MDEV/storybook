@@ -46,7 +46,7 @@ export interface VerticalNavProps {
 }
 
 export const itemDashboard = {
-  link: '/',
+  link: '/dashboard',
   icon: (
     <IconButton
       color='primary'

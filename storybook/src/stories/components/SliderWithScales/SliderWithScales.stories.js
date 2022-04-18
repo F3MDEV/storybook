@@ -51,7 +51,11 @@ Default.args = {
     className: "top-60 h-slider-scales",
     name: "MpDS SliderWithScales",
     widthOfTheSlide: 250,
-    sliderMainColor: "#4CB3BA",
+    sliderMainColor: "rgb(24, 120, 126)",
     arrowTooltipColor: "#4CB3BA",
     tooltipColor: "#4CB3BA",
+    ariaLabel: "F3M Slider",
+    ariaValueText: "0%",
+    step: 40,
+    valueSlider: "0"
 };

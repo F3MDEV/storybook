@@ -257,7 +257,7 @@ export const SliderWithScales = ({
             fontSize: 14,
             fontWeight: 700,
             color: "#494949",
-            opacity: ".4",
+            opacity: ".8",
             fontFamily: 'Roboto Condensed'
         },
         hSliderScales: {
@@ -288,7 +288,7 @@ export const SliderWithScales = ({
                 <div className={`${styleClass.bar} ${styleClass.rightZero} ${ barProps }`} />
 
                 <SliderWithScalesStyle
-                    getAriaValueText={ariaValueText}
+                    aria-valuetext={ariaValueText}
                     getAriaLabel={getAriaLabel}
                     aria-label={ariaLabel}
                     aria-labelledby={ariaLabelledby}
