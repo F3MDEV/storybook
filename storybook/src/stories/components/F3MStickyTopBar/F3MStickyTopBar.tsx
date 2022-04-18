@@ -354,6 +354,7 @@ detailsContentThird = <>
                         className={`${classes.large} border rounded`}
                         src={healthiPatientPhoto}
                         onError={healthiHandleErrorImg}
+                        alt="Patient photo"
                     />
                     </div>
                     <div className="w-100 d-flex">

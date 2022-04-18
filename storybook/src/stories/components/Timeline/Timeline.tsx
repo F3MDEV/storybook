@@ -227,7 +227,7 @@ export const Timeline: FunctionComponent<VerticalNavProps>= ({
                     <div style={{display: 'flex', width: '100%'}}>
                         <IconButton 
                             color="primary"
-                            aria-label="upload picture"
+                            aria-label="Filters"
                             id="demo-positioned-button"
                             aria-controls={open ? 'demo-positioned-menu' : undefined}
                             aria-haspopup="true"
@@ -335,18 +335,20 @@ export const Timeline: FunctionComponent<VerticalNavProps>= ({
                                 justifyContent="center"
                                 sx={{marginTop: 1 }}
                                 alignItems="center">
-                                    <ButtonApply>Aplicar</ButtonApply>
+                                    <ButtonApply aria-label="Apply filter">Aplicar</ButtonApply>
                             </Stack>
                         </Menu>
                             <IconButton 
                                 color="primary"
                                 onClick={allPanLeft}
+                                aria-label="Drag to the beginning"
                                 >
                                 <FirstPageIcon sx={{ color: '#04a0aa'}}></FirstPageIcon>
                             </IconButton>
                             <IconButton 
                                 color="primary"
                                 onClick={panLeft}
+                                aria-label="Drag to the previous date"
                                 >
                                 <ChevronLeftIcon sx={{ color: '#04a0aa'}}></ChevronLeftIcon>
                             </IconButton>
@@ -356,12 +358,14 @@ export const Timeline: FunctionComponent<VerticalNavProps>= ({
                             <IconButton 
                                 color="primary"
                                 onClick={panRight}
+                                aria-label="Drag to the next date"
                             >
                                 <ChevronRightIcon sx={{ color: '#04a0aa'}}></ChevronRightIcon>
                             </IconButton>
                             <IconButton 
                                 color="primary"
                                 onClick={allPanRight}
+                                aria-label="Drag to the end"
                             >
                                 <LastPageIcon sx={{ color: '#04a0aa'}}></LastPageIcon>
                             </IconButton>

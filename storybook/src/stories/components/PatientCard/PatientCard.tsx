@@ -286,6 +286,7 @@ const PatientCard: FunctionComponent<PatientCardProps> = ({
             <div>
                 <div className={`${styleClass.displayFlex} `}>
                     {hasImage ? <img 
+                    alt="Patient Photo"
                     style={{
                         width: 50,
                         height: 50,
@@ -296,12 +297,11 @@ const PatientCard: FunctionComponent<PatientCardProps> = ({
                     }}
                     src={idCardPhoto} /> 
                         : 
-                        <Image className={hasImage ? `${styleClass.myAuto} ${styleClass.avatarIdCard} ${styleClass.fitPhoto} ${styleClass.borderImageGrd}` : `${styleClass.myAuto} ${styleClass.avatarIdCard} ${styleClass.fitPhoto}`} 
+                        <Image alt="Patient Photo" className={hasImage ? `${styleClass.myAuto} ${styleClass.avatarIdCard} ${styleClass.fitPhoto} ${styleClass.borderImageGrd}` : `${styleClass.myAuto} ${styleClass.avatarIdCard} ${styleClass.fitPhoto}`} 
                             roundedCircle
                             src={PatientIcon}
                         ></Image>
                     }
-                    
                     <div className={`${styleClass.textLeft} ${styleClass.myAuto} ${styleClass.flexTwo} ${styleClass.mL3}`}>
                         <div className={`${styleClass.displayFlex} ${styleClass.mL2}`}>
                             <Box fontSize={14} className={`${styleClass.nameInfoCard} ${styleClass.displayBlock} ${styleClass.pr2} ${styleClass.m0}`}>

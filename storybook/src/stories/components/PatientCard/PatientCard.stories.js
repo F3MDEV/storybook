@@ -33,7 +33,7 @@ Default.args = {
     valueThree: 'Teacher',
     valueFour: 'PT',
     valueFive: '1009 days (18.01.2018)',
-    colorBottomLink: '#4cb3ba',
+    colorBottomLink: '#18787e',
     textOfBottomLink: 'See All',
     colorText: '#494949',
     idCardPhoto: "https://akns-images.eonline.com/eol_images/Entire_Site/2022230/rs_1200x1200-220330122917-1200-will-smith-2022-oscars-GettyImages-1239561192.jpg?fit=around%7C660:372&output-quality=90&crop=660:372;center,top"
