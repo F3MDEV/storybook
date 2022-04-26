@@ -6,7 +6,9 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
     "@storybook/addon-interactions",
-    '@storybook/addon-a11y'
+    '@storybook/addon-a11y',
+    '@storybook/addon-viewport',
+    'addon-screen-reader'
   ],
   features: {
     postcss: false,
