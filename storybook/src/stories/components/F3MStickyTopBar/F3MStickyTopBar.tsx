@@ -4,16 +4,20 @@ import { FunctionComponent, useState } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import IconButton from '@material-ui/core/IconButton';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
 //ICONS
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
 import EditIcon from '@mui/icons-material/Edit';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
 
 interface StickyTopBarProps {
   /**
@@ -65,6 +69,10 @@ interface StickyTopBarProps {
   */
   healthiReportIcon?: React.ReactNode
   /**
+   * Insert badges of the problems that patient's have.
+  */
+  patientBadges?: React.ReactNode
+  /**
    * Insert elements in the first section of details.
   */
   detailsContentOne?: React.ReactNode
@@ -84,20 +92,34 @@ interface StickyTopBarProps {
    * Insert dashed board between second and third detail section.
   */
   isDashedBoardThirdContentInserted?: boolean
+  /**
+   * Insert patient name (isHealthiPatientSummaryActive value has to be "true").
+  */
+   healthiPatientNickname?: string
 }
+  
+const episodes = [
+  {
+    value: '30/01/2021 (Internamento)',
+  },
+  {
+    value: '21/04/2021 (Internamento)',
+  }
+];
+
 
 const StickyTopBar: FunctionComponent<StickyTopBarProps>  = ({
     barPosition = 'absolute',
     headerContainerClasses = "w-100",
-    summaryContent = <div>
-      Who Cares.
-    </div>,
     isHealthiPatientSummaryActive = true,
-    healthiBadgePatientPhoto = <span className={`badge rounded-pill bg-danger`} style={{position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: 1, bottom: -7, fontSize: '7px', textTransform: 'capitalize', width: '42px', maxHeight: '13px'}}>
+    healthiBadgePatientPhoto = <span className={`badge rounded-pill bg-danger`} 
+    style={{position: 'absolute', left: '50%', transform: 'translateX(-50%)', zIndex: 1, 
+    bottom: -2, fontSize: '7px', textTransform: 'capitalize', width: '42px', maxHeight: '13px'}}>
         Inativo
     </span>,
     healthiPatientPhoto = 'https://www.looper.com/img/gallery/why-did-the-old-man-play-in-squid-game/l-intro-1633465995.jpg',
     healthiHandleErrorImg,
+    healthiPatientNickname = 'Zé Andrade',
     healthiPatientName = 'José Pereira Andrade',
     healthiPatientAge= '92 anos',
     healthiPatientSNS = '001',
@@ -108,6 +130,13 @@ const StickyTopBar: FunctionComponent<StickyTopBarProps>  = ({
     aria-haspopup="true"
     className={`ms-4`}
     style={{color: "#FF9800"}}></ReportProblemIcon>,
+    patientBadges = <>
+      <Box component="div" className="text-center" sx={{  width: 20, height: 20, marginRight: '5px', borderRadius: '50%', background: '#FF8882', color: '#fff', fontFamily: 'Open Sans', fontWeight: 600, fontSize: 8, lineHeight: 2.4 }}>1</Box>
+      <Box component="div" className="text-center" sx={{  width: 20, height: 20, marginRight: '5px', borderRadius: '50%', background: '#04A0AA', color: '#fff', fontFamily: 'Open Sans', fontWeight: 600, fontSize: 8, lineHeight: 2.4 }}>2</Box>
+      <Box component="div" className="text-center" sx={{  width: 20, height: 20, marginRight: '5px', borderRadius: '50%', background: '#FF8882', color: '#fff', fontFamily: 'Open Sans', fontWeight: 600, fontSize: 8, lineHeight: 2.4 }}>3</Box>
+      <Box component="div" className="text-center" sx={{  width: 20, height: 20, marginRight: '5px', borderRadius: '50%', background: '#04A0AA', color: '#fff', fontFamily: 'Open Sans', fontWeight: 600, fontSize: 8, lineHeight: 2.4 }}>4</Box>
+      <Box component="div" className="text-center" sx={{  width: 20, height: 20, marginRight: '5px', borderRadius: '50%', background: '#04A0AA', color: '#fff', fontFamily: 'Open Sans', fontWeight: 600, fontSize: 8, lineHeight: 2.4 }}>5</Box>
+    </>,
     detailsContentOne = <div style={{display: 'grid', color: '#444444', gridGap: 5, fontSize: 14, whiteSpace: 'nowrap', gridTemplateColumns: 'min-content auto min-content auto'}}>
     <div className={`fw-bold`}>Nacionalidade</div>
     <div className={`ps-2`}>Portuguesa</div>
@@ -160,7 +189,52 @@ detailsContentThird = <>
     </div>
     </>,
     isDashedBoardSecondContentInserted = true,
-    isDashedBoardThirdContentInserted = true
+    isDashedBoardThirdContentInserted = true,
+    summaryContent = <>
+      <div className="d-flex w-100">
+        <div className='position-relative'>
+        {healthiBadgePatientPhoto}
+          <img
+              className={`border rounded my-auto`}
+              src={healthiPatientPhoto}
+              onError={healthiHandleErrorImg}
+              style={{width: 45, height: 45}}
+          />
+          </div>
+          <div className="d-flex flex-column px-3 text-nowrap my-auto" style={{fontFamily: 'Roboto', fontSize: 13}}>
+            <div className='d-block' style={{ fontSize: 15}}><b>{healthiPatientNickname}</b> ({healthiPatientAge})</div>
+            <div className='d-block'>{healthiPatientName}</div>
+          </div>
+          <div className="d-flex flex-column w-100 my-auto mx-4  text-nowrap " style={{fontFamily: 'Roboto', fontSize: 13, overflow: 'hidden', textOverflow: 'ellipsis'}}>
+            <div className="w-100 text-nowrap" style={{overflow: 'hidden', textOverflow: 'ellipsis'}}><b>SNS:</b> {healthiPatientSNS} {healthiPatientEntity}  |  <b><a>Diagnóstico Principal</a></b>: Ataque Isquêmico Transitó... </div>
+            <div className="w-100 text-nowrap" style={{overflow: 'hidden', textOverflow: 'ellipsis'}}><b>Gestor de Caso</b>: Tânia Palma  |  <b>C. Emergência</b>: 933 333 333</div>
+          </div>
+        <div className=" my-auto">
+          <TextField
+              id="standard-select-currency"
+              className="mx-5"
+              select
+              label="Episódio"
+              value='30/01/2021 (Internamento)'
+              /* value={episode}
+              onChange={handleChange} */
+              variant="standard"
+              InputLabelProps={{
+                  sx:{fontWeight: 'bold', color: '#444444'}
+              }}
+              >
+              {episodes.map((option) => (
+                  <MenuItem key={option.value} value={option.value}>
+                      {option.value}
+                  </MenuItem>
+              ))}
+          </TextField>
+        </div>
+        <div className="d-flex ms-auto my-auto">
+            {patientBadges}
+        </div>
+      </div>
+    </>
 }) => {
 
   //popover
@@ -184,6 +258,9 @@ detailsContentThird = <>
             '& .MuiInputBase-input':{
             backgroundColor: "#ffffff",
             }
+        },
+        '& .MuiAccordionSummary-content':{
+          width: '100%'
         },
        
         '&.MuiAccordionDetails-root':{
@@ -327,7 +404,13 @@ detailsContentThird = <>
     }
 }));
 
-  const classes = useStyles();
+  const classes = useStyles(); 
+
+  const [episode, setEpisode] = React.useState('30/01/2021 (Internamento)');
+
+const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  setEpisode(event.target.value);
+};
 
   const handleChangeAccordion = () => {
     if (openAccordion) {
@@ -336,33 +419,34 @@ detailsContentThird = <>
       setOpenAccordion(true)
     }
   }
-
+ 
   return (
     <>   
-        <div className={`row ${classes.bigHeader} ${classes.sticky} ${headerContainerClasses}`}>
+        <div style={{width: 'fit-content !important'}} className={`row ${classes.bigHeader} ${classes.sticky} ${headerContainerClasses}`}>
             <Accordion className={`w-100 ${classes.root}`} expanded={openAccordion} onChange={handleChangeAccordion}>
             <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            className={classes.root}
-            id="panel1a-header">
-            {healthiPatientSummary ? 
-                <div className={`col-sm-12 col-md-12 col-lg-9 col-xl-9 ps-0 ${classes.photoNameGroup}`}>
-                    <div className={classes.photoGroup}>
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              className={`${classes.root}`}
+              id="panel1a-header">
+              {healthiPatientSummary ? 
+                  <div className={`col-sm-12 col-md-12 col-lg-9 col-xl-9 ps-0 ${classes.photoNameGroup}`}>
+                  <div className={classes.photoGroup}>
                     {healthiBadgePatientPhoto}
                     <img
-                        className={`${classes.large} border rounded`}
-                        src={healthiPatientPhoto}
-                        onError={healthiHandleErrorImg}
-                        alt="Patient photo"
+                      className={`${classes.large} border rounded`}
+                      src={healthiPatientPhoto}
+                      onError={healthiHandleErrorImg}
+                      alt="Patient photo"
                     />
-                    </div>
-                    <div className="w-100 d-flex">
-                    <Box className="my-auto" fontSize={12}>{healthiPatientName} &nbsp; {healthiPatientAge} &nbsp;&nbsp;|&nbsp;&nbsp;<b> SNS:</b> {healthiPatientSNS} &nbsp;&nbsp;|&nbsp;&nbsp;<b>Entidade:</b>{healthiPatientEntity}</Box> 
-                        {healthiReportIcon}
-                    </div>
-                </div>
-                :
+                  </div>
+                  <div className="w-100 d-flex">
+                  <Box className="my-auto" fontSize={12}>{healthiPatientName} &nbsp; {healthiPatientAge} &nbsp;&nbsp;|&nbsp;&nbsp;<b> SNS:</b> {healthiPatientSNS} &nbsp;&nbsp;|&nbsp;&nbsp;<b>Entidade:</b>{healthiPatientEntity}</Box> 
+                      {healthiReportIcon}
+                  </div>
+              </div>
+                
+             :
                 summaryContent
             }
         </AccordionSummary>
