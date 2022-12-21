@@ -45,7 +45,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook -o docs-build",
+    "build-storybook": "build-storybook -o docs-build -s ./assets",
     "init-msw": "msw init public/"
   },
   "eslintConfig": {
